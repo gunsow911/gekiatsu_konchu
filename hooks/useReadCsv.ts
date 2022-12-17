@@ -1,4 +1,5 @@
 import {LatLng} from 'leaflet'
+import {FeatureCollection, MultiPolygon} from 'geojson'
 import {parse} from 'papaparse'
 import {useEffect, useState} from 'react'
 
@@ -8,8 +9,14 @@ type Row = {
   name: string
 }
 
+export type WoodAreaProperty = {
+  id: number
+  data: {[id: string]: number}
+}
+
 const useReadCsv = () => {
     const [rows, setRows] = useState<Row[]>()
+    const [geoJsonData, setGeoJsonData] = useState<FeatureCollection<MultiPolygon, WoodAreaProperty>>()
 
     useEffect(() => {
       fetch("/data/place.csv")
@@ -33,7 +40,16 @@ const useReadCsv = () => {
         })
     }, [])
 
-  return { rows }
+    useEffect(() => {
+      fetch("/data/treeKind.geojson")
+        .then(res => res.text())
+        .then(text => {
+          const fc = JSON.parse((text)) as FeatureCollection<MultiPolygon, WoodAreaProperty>
+          setGeoJsonData(fc)
+        })
+    }, [])
+
+  return { rows, geoJsonData }
 }
 
 export default useReadCsv
