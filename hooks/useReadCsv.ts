@@ -19,7 +19,6 @@ const useReadCsv = () => {
             skipEmptyLines: true,
           })
           const rows = results.data.map<Row>((d) => {
-            console.log(d)
             const row = d as any[]
             const latLng = new LatLng(row[0], row[1])
             const category = row[2]
