@@ -1,29 +1,18 @@
 import React from 'react'
-import {FeatureGroup, MapContainer, Polygon, TileLayer, GeoJSON} from 'react-leaflet'
+import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import useReadCsv, {WoodAreaProperty} from '../hooks/useReadCsv'
 import {Marker, Popup} from 'react-leaflet'
-import L, {Icon, LatLngTuple} from 'leaflet';
+import L, {Icon} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
+import useWoodArea from '../hooks/useWoodArea'
 // import intersect from '@turf/intersect'
 
 
 const Map = () => {
 
   const {rows, geoJsonData} = useReadCsv()
-
-  const toPopupString = (data: {[id: string]: number}): string => {
-    const total = Object.keys(data).reduce((sum, id) => {
-      return sum + data[id]
-    }, 0)
-
-    const percents = Object.keys(data).map((id) => {
-      const percent = ((data[id] / total) * 100).toFixed(2)
-      return `木の名前: ${id} ${percent}%` 
-    })
-
-    return percents.join('<br />')
-  }
+  const { toData } = useWoodArea()
 
   return (
     <MapContainer center={[34.1046934,131.3046877]} zoom={13} style={{width: '100%', height: '100vh'}}>
@@ -37,7 +26,7 @@ const Map = () => {
           data={geoJsonData} 
           onEachFeature={(feature, layer) => {
             const properties = feature.properties as WoodAreaProperty
-            layer.bindPopup(toPopupString(properties.data))
+            layer.bindPopup(toData(properties.data))
           }}
         />
       }
