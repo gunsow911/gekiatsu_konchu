@@ -1,3 +1,7 @@
+.slide{
+  margin: 30px;
+}
+
 .main {
   display: flex;
   flex-direction: column;

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-// import styles from '../styles/Landing.module.css'
+// import styles from '../styles/Home.module.css';
 
 export default function Landing() {
   return (
@@ -27,18 +27,24 @@ export default function Landing() {
           </div>
           <p>
             身近な自然の中に潜む昆虫の種別をマップ上で可視化できるツールです。<br/>
-            昆虫の好きな樹種からそれを好む昆虫のいそうな場所をマッピングします。
+            昆虫の好きな樹種からそれを好む昆虫のいそうな場所をマッピングします。<br/>
             このマップを見ることにより身近な森林が昆虫ワクワクゾーンに大変身。
           </p>
         </div>
-        <div>
-        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide1.png" alt="" />
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide1.png" alt="" />
         </div>
-        <div>
-        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide2.png" alt="" />
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide2.png" alt="" />
         </div>
-        <div>
-        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide3.png" alt="" />
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide3.png" alt="" />
+        </div>
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide4.png" alt="" />
+        </div>
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide5.png" alt="" />
         </div>
       </main>
     </div>
