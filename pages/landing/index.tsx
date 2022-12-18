@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
-// import styles from '../styles/Landing.module.css'
 
 export default function Landing() {
   return (
@@ -13,11 +11,10 @@ export default function Landing() {
       </Head>
       <main style={{
           textAlign: 'center',
-          margin: '50px 100px'
+          marginTop: '5em',
           }}>
         <div style={{
-          textAlign: 'center',
-          margin: '50px 100px',
+          marginBottom: '3em',
           }}>
           <Image className='logo_en' src="/logo/logo_ja.svg" alt="Logo" width={350} height={160} />
         </div>
@@ -27,11 +24,20 @@ export default function Landing() {
           </div>
           <p>
             身近な自然の中に潜む昆虫の種別をマップ上で可視化できるツールです。<br/>
-            昆虫の好きな樹種からそれを好む昆虫のいそうな場所をマッピングします。
-            このマップを見ることにより身近な森林が昆虫ワクワクゾーンに大変身。
+            昆虫の好きな樹種からそれを好む昆虫のいそうな場所がわかります！
+            このマップを見ることにより身近な森林が昆虫ワクワクゾーンに大変身！
           </p>
         </div>
-        <img style={{marginBottom: '1.2em', width: '100px'}} src="/landing/topimg.png" alt="" />
+
+        <div 
+          style={{
+              margin: "3em",
+              borderWidth: 2,
+              borderColor: "#ffffff",
+          }
+        }>
+              昆虫マップへ
+        </div>
       </main>
     </div>
   )
