@@ -31,7 +31,15 @@ export default function Landing() {
             このマップを見ることにより身近な森林が昆虫ワクワクゾーンに大変身。
           </p>
         </div>
-        <img style={{marginBottom: '1.2em', width: '100px'}} src="/landing/topimg.png" alt="" />
+        <div>
+        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide1.png" alt="" />
+        </div>
+        <div>
+        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide2.png" alt="" />
+        </div>
+        <div>
+        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide3.png" alt="" />
+        </div>
       </main>
     </div>
   )
