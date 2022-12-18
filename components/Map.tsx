@@ -6,7 +6,6 @@ import {Marker, Popup} from 'react-leaflet'
 import L, {Icon} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
 import useWoodArea from '../hooks/useWoodArea'
-// import intersect from '@turf/intersect'
 
 
 const Map = () => {
@@ -24,6 +23,9 @@ const Map = () => {
       {geoJsonData && 
         <GeoJSON 
           data={geoJsonData} 
+          style={(feature) => ({
+            weight: 0.5 
+          })}
           onEachFeature={(feature, layer) => {
             const properties = feature.properties as WoodAreaProperty
             layer.bindPopup(toData(properties.data))
@@ -47,7 +49,6 @@ const Map = () => {
             )
           }
       )}
-      {/* <SearchArea></SearchArea> */}
     </MapContainer>
   )
 }

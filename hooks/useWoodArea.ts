@@ -23,7 +23,7 @@ const useWoodArea = () => {
     if (id === 13) return 'クロマツ'
     if (id === 15) return 'イチョウ'
     if (id === 16) return 'カヤ'
-    if (id === 19) return 'その他針葉樹'
+    if (id === 19) return '針葉樹'
     if (id === 21) return 'クヌギ'
     if (id === 22) return 'カシ'
     if (id === 23) return 'シイ'
@@ -31,7 +31,7 @@ const useWoodArea = () => {
     if (id === 25) return 'キリ'
     if (id === 27) return 'ヤシヤブシ'
     if (id === 28) return 'ケヤキ'
-    if (id === 29) return 'その他広葉樹'
+    if (id === 29) return '広葉樹'
     if (id === 31) return 'マダケ'
     if (id === 32) return 'モウソウ'
     if (id === 33) return 'ハチク'
@@ -45,7 +45,7 @@ const useWoodArea = () => {
     if (id === 55) return 'イヌマキ'
     if (id === 56) return 'コウヤマキ'
     if (id === 57) return 'モミ'
-    return 'わかんない'
+    return 'わからん'
   }
 
   return {toData}
