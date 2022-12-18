@@ -1,5 +1,7 @@
+import {Button} from '@mui/material';
 import Head from 'next/head'
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export default function Landing() {
@@ -9,13 +11,8 @@ export default function Landing() {
         <title>激アツ！昆虫マップ ランディング</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main style={{
-          textAlign: 'center',
-          marginTop: '5em',
-          }}>
-        <div style={{
-          marginBottom: '3em',
-          }}>
+      <main style={{ textAlign: 'center', marginTop: '5em' }}>
+        <div style={{ marginBottom: '3em' }}>
           <Image className='logo_en' src="/logo/logo_ja.svg" alt="Logo" width={350} height={160} />
         </div>
         <div style={{marginBottom: '3em'}}>
@@ -29,14 +26,17 @@ export default function Landing() {
           </p>
         </div>
 
-        <div 
-          style={{
-              margin: "3em",
-              borderWidth: 2,
-              borderColor: "#ffffff",
-          }
-        }>
-              昆虫マップへ
+        <Link href="/" passHref>
+          <Button variant='outlined' size="large">昆虫マップへ</Button>
+        </Link>
+        <div>
+          <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide1.png" alt="" />
+        </div>
+        <div>
+          <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide2.png" alt="" />
+        </div>
+        <div>
+        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide3.png" alt="" />
         </div>
       </main>
     </div>
