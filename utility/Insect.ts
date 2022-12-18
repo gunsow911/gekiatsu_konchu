@@ -21,6 +21,21 @@
   }
 
   export const getInsect = (trees: {[id:string] :number}) => {
-    
+    const ids = Object.keys(trees)
+      .sort((a, b) => {
+        return trees[b] - trees[a]
+      })
+      .map((id) => {
+        return id
+      })
+
+    for (let i = 0; i < ids.length; i++) {
+      const id = ids[i]
+      if (id === "42" || id === "28") return 2
+      if (id === "21" || id === "32") return 1
+    }
+    return 0
   }
+
+
 

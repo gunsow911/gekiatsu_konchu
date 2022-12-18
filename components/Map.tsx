@@ -3,9 +3,10 @@ import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import useReadCsv, {WoodAreaProperty} from '../hooks/useReadCsv'
 import {Marker, Popup} from 'react-leaflet'
-import L, {Icon} from 'leaflet';
+import {Icon} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
 import {getPopUpElement} from '../utility/WoodArea'
+import {getColor, getInsect} from '../utility/Insect'
 
 
 const Map = () => {
@@ -23,8 +24,12 @@ const Map = () => {
           data={geoJsonData} 
           style={(feature) => {
             const trees = feature?.properties.data as {[id: string]: number}
+            const insectId = getInsect(trees)
+            const color = getColor(insectId)
             return {
               weight: 0.5,
+              fillColor: color,
+              fillOpacity: 0.4,
             }
           }}
           onEachFeature={(feature, layer) => {
