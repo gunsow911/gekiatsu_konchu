@@ -29,14 +29,20 @@ export default function Landing() {
         <Link href="/" passHref>
           <Button variant='outlined' size="large">昆虫マップへ</Button>
         </Link>
-        <div>
-          <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide1.png" alt="" />
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide1.png" alt="" />
         </div>
-        <div>
-          <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide2.png" alt="" />
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide2.png" alt="" />
         </div>
-        <div>
-        <img style={{marginBottom: '1.2em', width: '100%'}} src="/landing/slide3.png" alt="" />
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide3.png" alt="" />
+        </div>
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide4.png" alt="" />
+        </div>
+        <div style={{margin: '6em 4em'}}>
+        <img style={{ width: '100%'}} src="/landing/slide5.png" alt="" />
         </div>
       </main>
     </div>
