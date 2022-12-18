@@ -5,16 +5,15 @@ import useReadCsv, {WoodAreaProperty} from '../hooks/useReadCsv'
 import {Marker, Popup} from 'react-leaflet'
 import L, {Icon} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
-import useWoodArea from '../hooks/useWoodArea'
+import {getPopUpElement} from '../utility/WoodArea'
 
 
 const Map = () => {
 
   const {rows, geoJsonData} = useReadCsv()
-  const { toData } = useWoodArea()
 
   return (
-    <MapContainer center={[34.1046934,131.3046877]} zoom={13} style={{width: '100%', height: '100vh'}}>
+    <MapContainer center={[34.18583,131.47139]} zoom={13} style={{width: '100%', height: '100vh'}}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -30,7 +29,7 @@ const Map = () => {
           }}
           onEachFeature={(feature, layer) => {
             const properties = feature.properties as WoodAreaProperty
-            layer.bindPopup(toData(properties.data))
+            layer.bindPopup(getPopUpElement(properties.data))
           }}
         />
       }
@@ -44,7 +43,7 @@ const Map = () => {
             <React.Fragment key={index}>
               <Marker position={row.latLng} icon={icon}>
                 <Popup>
-                 <div>施設名: {row.name}</div>
+                 <div>{row.name}</div>
                 </Popup>
               </Marker>
             </React.Fragment>
