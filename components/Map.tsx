@@ -19,13 +19,15 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      
       {geoJsonData && 
         <GeoJSON 
           data={geoJsonData} 
-          style={(feature) => ({
-            weight: 0.5 
-          })}
+          style={(feature) => {
+            const trees = feature?.properties.data as {[id: string]: number}
+            return {
+              weight: 0.5,
+            }
+          }}
           onEachFeature={(feature, layer) => {
             const properties = feature.properties as WoodAreaProperty
             layer.bindPopup(toData(properties.data))
