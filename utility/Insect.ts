@@ -5,7 +5,7 @@
   export const getColor = (id: number): string => {
     if (id === 1) return '#ff0000' //クワガタ・カブトムシ
     if (id === 2) return '#4169e1' //ゼミ
-    return '#00000' //その他
+    return '#000000' //その他
 
     // if (id === 1) return '#a0522d' //アブラゼミ
     // if (id === 2) return '#a9a9a9' //クマゼミ

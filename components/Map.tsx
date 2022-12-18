@@ -7,6 +7,7 @@ import {Icon} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
 import {getPopUpElement} from '../utility/WoodArea'
 import {getColor, getInsect} from '../utility/Insect'
+import LegendControl from './LegendControl'
 
 
 const Map = () => {
@@ -30,6 +31,7 @@ const Map = () => {
               weight: 0.5,
               fillColor: color,
               fillOpacity: 0.4,
+              color: "#ffffff"
             }
           }}
           onEachFeature={(feature, layer) => {
@@ -55,6 +57,7 @@ const Map = () => {
             )
           }
       )}
+      <LegendControl />
     </MapContainer>
   )
 }
