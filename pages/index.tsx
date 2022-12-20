@@ -16,7 +16,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>激アツ！昆虫マップ</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <main>
         <Map />

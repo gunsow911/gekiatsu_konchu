@@ -8,12 +8,12 @@ export default function Landing() {
   return (
     <div>
       <Head>
-        <title>激アツ！昆虫マップ ランディング</title>
+        <title>激アツ！昆虫マップ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main style={{ textAlign: 'center', marginTop: '5em' }}>
         <div style={{ marginBottom: '3em' }}>
-          <Image className='logo_en' src="/logo/logo_ja.svg" alt="Logo" width={350} height={160} />
+          <img src="/logo/logo.png" alt="Logo" width={350} />
         </div>
         <div style={{marginBottom: '3em'}}>
           <div style={{marginBottom: '1.2em'}}>
