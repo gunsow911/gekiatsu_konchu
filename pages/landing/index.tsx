@@ -19,25 +19,25 @@ export default function Landing() {
         </div>
 
         <Link href="/" passHref>
-          <div className="mt-10 text-2xl ">
+          <div className="my-10 text-2xl ">
             <button className=" ease-in-out duration-100 hover:bg-[#CC7A00] rounded-full border-solid border-gray-200 hover:border-gray-50 border-4 px-6 py-3">激アツ！昆虫マップへ</button>
           </div>
         </Link>
 
-        <div style={{margin: '6em 4em'}}>
-          <img style={{ width: '100%'}} src="/landing/slide1.png" alt="" />
+        <div className="my-6">
+          <img width={800} className="object-cover mx-auto" src="/landing/slide1.png" />
         </div>
-        <div style={{margin: '6em 4em'}}>
-          <img style={{ width: '100%'}} src="/landing/slide2.png" alt="" />
+        <div className="my-6">
+          <img width={800} className="object-cover mx-auto" src="/landing/slide2.png" />
         </div>
-        <div style={{margin: '6em 4em'}}>
-          <img style={{ width: '100%'}} src="/landing/slide3.png" alt="" />
+        <div className="my-6">
+          <img width={800} className="object-cover mx-auto" src="/landing/slide3.png" />
         </div>
-        <div style={{margin: '6em 4em'}}>
-          <img style={{ width: '100%'}} src="/landing/slide4.png" alt="" />
+        <div className="my-6">
+          <img width={800} className="object-cover mx-auto" src="/landing/slide4.png" />
         </div>
-        <div style={{margin: '6em 4em'}}>
-          <img style={{ width: '100%'}} src="/landing/slide5.png" alt="" />
+        <div className="my-6">
+          <img width={800} className="object-cover mx-auto" src="/landing/slide5.png" />
         </div>
       </div>
   )
