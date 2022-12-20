@@ -1,7 +1,5 @@
 import dynamic from 'next/dynamic';
-import Head from 'next/head'
 import React from 'react';
-import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const Map = React.useMemo(
@@ -13,14 +11,8 @@ export default function Home() {
     []
   );
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>激アツ！昆虫マップ</title>
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-      <main>
-        <Map />
-      </main>
+    <div>
+      <Map />
     </div>
   )
 }
