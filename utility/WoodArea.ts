@@ -1,18 +1,26 @@
-export const getPopUpElement = (data: {[id: string]: number}): string => {
-  const total = Object.keys(data).reduce((sum, id) => {
-    return sum + data[id]
+import {getInsectPoints} from "./Insect"
+
+export const getPopUpElement = (trees: {[id: string]: number}): string => {
+
+  const insectPoints = getInsectPoints(trees)
+  const totalPoint = (insectPoints.reduce((prev, current) => {
+    return prev + current.point
+  }, 0) * 100).toFixed(0)
+
+  const total = Object.keys(trees).reduce((sum, id) => {
+    return sum + trees[id]
   }, 0)
 
-  const percents = Object.keys(data)
+  const percents = Object.keys(trees)
     .sort((a, b) => {
-      return data[b] - data[a]
+      return trees[b] - trees[a]
     })
     .map((id) => {
-      const percent = ((data[id] / total) * 100).toFixed(2)
+      const percent = ((trees[id] / total) * 100).toFixed(2)
       return `${getName(Number(id))} ${percent}%` 
     })
 
-  return percents.join('<br />')
+  return `激アツ度 ${totalPoint} %<br /> ${percents.join('<br />')}`
 }
 
 const getName = (id: number) => {

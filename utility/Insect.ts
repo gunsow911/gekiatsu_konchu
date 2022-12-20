@@ -1,40 +1,58 @@
-
-  // 色はここを参考にしました
-  // https://www.colordic.org/
-
-  export const getColor = (id: number): string => {
+  export const getColor = (id: number, point: number): string => {
     if (id === 1) return '#ff0000' //クワガタ・カブトムシ
     if (id === 2) return '#4169e1' //ゼミ
     return '#000000' //その他
-
-    // if (id === 1) return '#a0522d' //アブラゼミ
-    // if (id === 2) return '#a9a9a9' //クマゼミ
-
-    // if (id === 3) return '#4169e1' //ミヤマクワガタ
-    // if (id === 4) return '#4682b4' //コクワガタ
-    // if (id === 5) return '#191970' // ヒラタクワガタ
-    // if (id === 6) return '#00bfff' //アカアシクワガタ
-
-    // if (id === 7) return '#ff0000' //カブトムシ
-    // if (id === 8) return '#9932cc' //カナブン
-
   }
 
-  export const getInsect = (trees: {[id:string] :number}) => {
-    const ids = Object.keys(trees)
+  export const getInsectPoints = (trees: {[id:string] :number}): {id: number, point: number}[] => {
+    const total = Object.keys(trees).reduce((sum, id) => {
+      return sum + trees[id]
+    }, 0)
+
+    const points = Object.keys(trees)
       .sort((a, b) => {
         return trees[b] - trees[a]
       })
       .map((id) => {
-        return id
+        const percent = ((trees[id] / total) * 100).toFixed(2)
+        return {id, point: Number(percent)}
       })
 
-    for (let i = 0; i < ids.length; i++) {
-      const id = ids[i]
-      if (id === "42" || id === "28") return 2
-      if (id === "21" || id === "32") return 1
+    // 甲虫ポイント
+    // 好き：クヌギ・コナラ
+    const beetlePoint = points.filter(({id}) => {
+      return id === "21" || id === "41"
+    }).reduce((prev, current) => {
+      return current.point + prev
+    }, 0)
+
+    // セミポイント
+    // 好き：サクラ・モミ・ケヤキ
+    const cicadaPoint = points.filter(({id}) => {
+      return id === "28" || id === "42" || id === "57"
+    }).reduce((prev, current) => {
+      return current.point + prev
+    }, 0)
+
+    return [
+      {id: 1, point: beetlePoint},
+      {id: 2, point: cicadaPoint}
+    ]
+  }
+
+  export const getInsectPoint = (trees: {[id:string] :number}): {id: number, point: number} => {
+    const points = getInsectPoints(trees)
+
+    const beetlePoint = points[0].point
+    const cicadaPoint = points[1].point
+
+    if (beetlePoint === 0 && cicadaPoint === 0) {
+      return {id: 0, point: 0}
     }
-    return 0
+    if (beetlePoint >= cicadaPoint) {
+      return {id: 1, point: beetlePoint + cicadaPoint}
+    }
+    return {id: 2, point: beetlePoint + cicadaPoint}
   }
 
 

@@ -6,7 +6,7 @@ import {Marker, Popup} from 'react-leaflet'
 import {Icon} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
 import {getPopUpElement} from '../utility/WoodArea'
-import {getColor, getInsect} from '../utility/Insect'
+import {getColor, getInsectPoint} from '../utility/Insect'
 import LegendControl from './LegendControl'
 
 
@@ -25,13 +25,14 @@ const Map = () => {
           data={geoJsonData} 
           style={(feature) => {
             const trees = feature?.properties.data as {[id: string]: number}
-            const insectId = getInsect(trees)
-            const color = getColor(insectId)
+            const insectPoint = getInsectPoint(trees)
+            const color = getColor(insectPoint.id, insectPoint.point)
+            const opacity = Math.min(1.0, insectPoint.point)
             return {
               weight: 0.5,
               fillColor: color,
-              fillOpacity: 0.4,
-              color: "#ffffff"
+              fillOpacity: 0.3 + (0.5 * opacity),
+              color: "#ffffff",
             }
           }}
           onEachFeature={(feature, layer) => {
