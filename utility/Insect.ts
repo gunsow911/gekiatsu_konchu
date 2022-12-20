@@ -1,4 +1,4 @@
-  export const getColor = (id: number, point: number): string => {
+  export const getColor = (id: number): string => {
     if (id === 1) return '#ff0000' //クワガタ・カブトムシ
     if (id === 2) return '#4169e1' //ゼミ
     return '#000000' //その他

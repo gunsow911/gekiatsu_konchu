@@ -26,7 +26,7 @@ const Map = () => {
           style={(feature) => {
             const trees = feature?.properties.data as {[id: string]: number}
             const insectPoint = getInsectPoint(trees)
-            const color = getColor(insectPoint.id, insectPoint.point)
+            const color = getColor(insectPoint.id)
             const opacity = Math.min(1.0, insectPoint.point)
             return {
               weight: 0.5,
