@@ -41,7 +41,7 @@ const useReadCsv = () => {
     }, [])
 
     useEffect(() => {
-      fetch("/data/treeKind.geojson")
+      fetch("/data/山口市森林簿.geojson")
         .then(res => res.text())
         .then(text => {
           const fc = JSON.parse((text)) as FeatureCollection<MultiPolygon, WoodAreaProperty>
