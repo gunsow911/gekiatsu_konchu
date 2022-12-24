@@ -1,13 +1,13 @@
 import React from 'react'
 import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
 import useReadCsv, {WoodAreaProperty} from '../hooks/useReadCsv'
 import {Marker, Popup} from 'react-leaflet'
 import {Icon} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
-import {getPopUpElement} from '../utility/WoodArea'
 import {getColor, getInsectPoint} from '../utility/Insect'
 import LegendControl from './LegendControl'
+import ReactDOMServer from "react-dom/server"
+import GekiatsuPopup from './GekiatsuPopup'
 
 
 const Map = () => {
@@ -37,7 +37,10 @@ const Map = () => {
           }}
           onEachFeature={(feature, layer) => {
             const properties = feature.properties as WoodAreaProperty
-            layer.bindPopup(getPopUpElement(properties.data))
+            const popupContent = ReactDOMServer.renderToString(
+                  <GekiatsuPopup trees={properties.data} />
+                );
+            layer.bindPopup(popupContent);
           }}
         />
       }
@@ -51,7 +54,7 @@ const Map = () => {
             <React.Fragment key={index}>
               <Marker position={row.latLng} icon={icon}>
                 <Popup>
-                 <div>{row.name}</div>
+                 <div className='pt-2'>{row.name}</div>
                 </Popup>
               </Marker>
             </React.Fragment>

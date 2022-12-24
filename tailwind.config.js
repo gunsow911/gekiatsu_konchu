@@ -15,7 +15,8 @@ module.exports = {
   theme: {
     fontFamily: {
       body: [
-        'Helvetica',
+        'Helvetica Neue',
+        'Segoe UI',
         'Arial',
         'Hiragino Kaku Gothic ProN',
         'ヒラギノ角ゴ ProN W3',

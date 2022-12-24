@@ -23,3 +23,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.leaflet-popup-content {
+  margin: 13px 10px 13px 6px;
+  line-height: 1.3;
+  font-size: 13px;
+  font-size: 1.08333em;
+  min-height: 1px;
+}

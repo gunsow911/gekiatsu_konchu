@@ -21,7 +21,7 @@
     // 甲虫ポイント
     // 好き：クヌギ・コナラ
     const beetlePoint = points.filter(({id}) => {
-      return id === "21" || id === "41"
+      return isBeetleLike(id)
     }).reduce((prev, current) => {
       return current.point + prev
     }, 0)
@@ -29,7 +29,7 @@
     // セミポイント
     // 好き：サクラ・モミ・ケヤキ
     const cicadaPoint = points.filter(({id}) => {
-      return id === "28" || id === "42" || id === "57"
+      return isCicadaLike(id)
     }).reduce((prev, current) => {
       return current.point + prev
     }, 0)
@@ -38,6 +38,22 @@
       {id: 1, point: beetlePoint},
       {id: 2, point: cicadaPoint}
     ]
+  }
+
+  /**
+   * 甲虫が好きな木かどうか
+   * 好き：クヌギ・コナラ
+   */
+  export const isBeetleLike = (treeId: string) => {
+      return treeId === "21" || treeId === "41"
+  }
+
+  /**
+   * セミが好きな木かどうか
+   * 好き：サクラ・モミ・ケヤキ
+   */
+  export const isCicadaLike = (treeId: string) => {
+      return treeId === "28" || treeId === "42" || treeId === "57"
   }
 
   export const getInsectPoint = (trees: {[id:string] :number}): {id: number, point: number} => {
