@@ -76,7 +76,7 @@ const GekiatsuPopup = (props: Props) => {
     <div className="w-40">
       <div className="text-lg text-center">激アツ度 {totalPoint}%</div>
       <hr className="mb-1.5 mt-1"  />
-      <div className="text-xs font-semibold">樹木の種類</div>
+      <div className="text-xs font-semibold pb-1">樹木の種類</div>
       {percents.map((percent, index) => (
         <div className="flex items-center h-5" key={index}>
           <span className="pr-1">{getName(percent.id)} {percent.percent}%</span>
