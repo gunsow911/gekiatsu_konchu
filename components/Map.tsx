@@ -9,10 +9,9 @@ import LegendControl from './LegendControl'
 import ReactDOMServer from "react-dom/server"
 import GekiatsuPopup from './GekiatsuPopup'
 
-
 const Map = () => {
 
-  const {rows, geoJsonData} = useReadCsv()
+  const {rows, geoJsonData} = useReadCsv('yamaguchi')
 
   return (
     <MapContainer center={[34.18583,131.47139]} zoom={13} style={{width: '100%', height: '100vh'}}>

@@ -14,12 +14,12 @@ export type WoodAreaProperty = {
   data: {[id: string]: number}
 }
 
-const useReadCsv = () => {
+const useReadCsv = (place: string) => {
     const [rows, setRows] = useState<Row[]>()
     const [geoJsonData, setGeoJsonData] = useState<FeatureCollection<MultiPolygon, WoodAreaProperty>>()
 
     useEffect(() => {
-      fetch("/data/place.csv")
+      fetch(`/data/landmarks/${place}.csv`)
         .then(res => res.text())
         .then(text => {
           const results = parse(text ,{
@@ -41,7 +41,7 @@ const useReadCsv = () => {
     }, [])
 
     useEffect(() => {
-      fetch("/data/山口市森林簿.geojson")
+      fetch(`/data/forest-reports/${place}.geojson`)
         .then(res => res.text())
         .then(text => {
           const fc = JSON.parse((text)) as FeatureCollection<MultiPolygon, WoodAreaProperty>
