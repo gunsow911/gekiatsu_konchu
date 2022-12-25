@@ -1,10 +1,8 @@
-import {getInsectPoints, isBeetleLike, isCicadaLike} from "../utility/Insect"
+import {getInsectPoints, isBeetleLike, isCicadaLike, isLonghornBeetleLike} from "../utility/Insect"
 
 type Props = {
   trees: {[id: string]: number}
 }
-
-type InsectType = 'BEETLE' | 'CICADA' | 'UNKNOWN'
 
 const GekiatsuPopup = (props: Props) => {
 
@@ -38,19 +36,6 @@ const GekiatsuPopup = (props: Props) => {
     if (id === "56") return 'コウヤマキ'
     if (id === "57") return 'モミ'
     return 'わからん'
-  }
-
-  const getInsectType = (points: {id:number, point:number}[]): InsectType => {
-    const beetlePoint = points[0].point
-    const cicadaPoint = points[1].point
-
-    if (beetlePoint === 0 && cicadaPoint === 0) {
-      return 'UNKNOWN'
-    }
-    if (beetlePoint >= cicadaPoint) {
-      return 'BEETLE' 
-    }
-    return 'CICADA'
   }
 
   const insectPoints = getInsectPoints(props.trees)
@@ -88,6 +73,7 @@ const GekiatsuPopup = (props: Props) => {
               </>
             }
             {isCicadaLike(percent.id) && <img className="h-5" src="/images/cicada.png" />}
+            {isLonghornBeetleLike(percent.id) && <img className="h-5 flex-initial" src="/images/longhorn_beetle.png" /> }
           </>
         </div>
       ))}
