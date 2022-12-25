@@ -4,6 +4,9 @@
     return '#000000' //その他
   }
 
+  /**
+   * 樹木の中での昆虫ポイント一覧を取得する
+   */
   export const getInsectPoints = (trees: {[id:string] :number}): {id: number, point: number}[] => {
     const total = Object.keys(trees).reduce((sum, id) => {
       return sum + trees[id]
@@ -56,6 +59,9 @@
       return treeId === "28" || treeId === "42" || treeId === "57"
   }
 
+  /**
+   * 樹木の中で一番の昆虫ポイントを取得する
+   */
   export const getInsectPoint = (trees: {[id:string] :number}): {id: number, point: number} => {
     const points = getInsectPoints(trees)
 
