@@ -12,6 +12,7 @@ type Row = {
 export type WoodAreaProperty = {
   id: number
   data: {[id: string]: number}
+  centroid: {lat: number, lng: number}
 }
 
 const useReadCsv = (place: string) => {
