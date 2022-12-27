@@ -1,4 +1,4 @@
-import {getInsectPoints, isBeetleLike, isCicadaLike} from "../utility/Insect"
+import {getInsectPoints, isBeetleLike, isCicadaLike, isLonghornBeetleLike} from "../utility/Insect"
 import TwitterButton from "./TwitterButton"
 
 type Props = {
@@ -76,6 +76,7 @@ const GekiatsuPopup = (props: Props) => {
               </>
             }
             {isCicadaLike(percent.id) && <img className="h-5" src="/images/cicada.png" />}
+            {isLonghornBeetleLike(percent.id) && <img className="h-5 flex-initial" src="/images/longhorn_beetle.png" /> }
           </>
         </div>
       ))}

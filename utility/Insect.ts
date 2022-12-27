@@ -1,6 +1,7 @@
   export const getColor = (id: number): string => {
     if (id === 1) return '#ff0000' //クワガタ・カブトムシ
     if (id === 2) return '#4169e1' //ゼミ
+    if (id === 3) return '#800080' //カミキリムシ
     return '#000000' //その他
   }
 
@@ -37,9 +38,18 @@
       return current.point + prev
     }, 0)
 
+    // カミキリムシポイント
+    // 好き：ミカン科、イチジク、ナシ、ヤナギ、モミジ、クリ、シイ
+    const longhornBeetlePoint = points.filter(({id}) => {
+      return isLonghornBeetleLike(id)
+    }).reduce((prev, current) => {
+      return current.point + prev
+    }, 0)
+
     return [
       {id: 1, point: beetlePoint},
-      {id: 2, point: cicadaPoint}
+      {id: 2, point: cicadaPoint},
+      {id: 3, point: longhornBeetlePoint},
     ]
   }
 
@@ -60,21 +70,22 @@
   }
 
   /**
+   * カミキリムシが好きな木かどうか
+   * 好き：ミカン科、イチジク、ナシ、ヤナギ、モミジ、クリ、シイ
+   */
+  export const isLonghornBeetleLike = (treeId: string) => {
+      return treeId === "23" || treeId === "24" 
+  }
+
+  /**
    * 樹木の中で一番の昆虫ポイントを取得する
    */
-  export const getInsectPoint = (trees: {[id:string] :number}): {id: number, point: number} => {
+  export const getTopInsectPoint = (trees: {[id:string] :number}): {id: number, point: number} => {
     const points = getInsectPoints(trees)
-
-    const beetlePoint = points[0].point
-    const cicadaPoint = points[1].point
-
-    if (beetlePoint === 0 && cicadaPoint === 0) {
-      return {id: 0, point: 0}
-    }
-    if (beetlePoint >= cicadaPoint) {
-      return {id: 1, point: beetlePoint + cicadaPoint}
-    }
-    return {id: 2, point: beetlePoint + cicadaPoint}
+    const top = points.reduce((prev, current) => {
+      return prev.point < current.point ? current : prev
+    }, {id: 0, point: 0})
+    return top
   }
 
 

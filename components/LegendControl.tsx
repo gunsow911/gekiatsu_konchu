@@ -9,6 +9,7 @@ const LegendControl = () => {
       >
         <div><span className="pr-3 opacity-60" style={{backgroundColor: getColor(1)}}>&nbsp;</span><span style={{paddingLeft: "0.5em"}}>カブトムシ・クワガタ</span></div>
         <div><span className="pr-3 opacity-60" style={{backgroundColor: getColor(2)}}>&nbsp;</span><span style={{paddingLeft: "0.5em"}}>セミ</span></div>
+        <div><span className="pr-3 opacity-60" style={{backgroundColor: getColor(3)}}>&nbsp;</span><span style={{paddingLeft: "0.5em"}}>カミキリムシ</span></div>
         <div><span className="pr-3 opacity-60" style={{backgroundColor: getColor(0)}}>&nbsp;</span><span style={{paddingLeft: "0.5em"}}>その他</span></div>
       </div>
     </div>

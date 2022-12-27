@@ -4,7 +4,7 @@ import useReadCsv, {WoodAreaProperty} from '../hooks/useReadCsv'
 import {Marker, Popup} from 'react-leaflet'
 import {Icon, Layer} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
-import {getColor, getInsectPoint} from '../utility/Insect'
+import {getColor, getTopInsectPoint} from '../utility/Insect'
 import LegendControl from './LegendControl'
 import ReactDOMServer from "react-dom/server"
 import GekiatsuPopup from './GekiatsuPopup'
@@ -36,7 +36,7 @@ const Map = () => {
           data={geoJsonData} 
           style={(feature) => {
             const trees = feature?.properties.data as {[id: string]: number}
-            const insectPoint = getInsectPoint(trees)
+            const insectPoint = getTopInsectPoint(trees)
             const color = getColor(insectPoint.id)
             const opacity = Math.min(1.0, insectPoint.point)
             return {
