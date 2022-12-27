@@ -1,7 +1,9 @@
 import {getInsectPoints, isBeetleLike, isCicadaLike, isLonghornBeetleLike} from "../utility/Insect"
+import TwitterButton from "./TwitterButton"
 
 type Props = {
   trees: {[id: string]: number}
+  latLng?: {lat: number, lng: number}
 }
 
 const GekiatsuPopup = (props: Props) => {
@@ -40,9 +42,9 @@ const GekiatsuPopup = (props: Props) => {
 
   const insectPoints = getInsectPoints(props.trees)
 
-  const totalPoint = (insectPoints.reduce((prev, current) => {
+  const totalPoint = Number((insectPoints.reduce((prev, current) => {
     return prev + current.point
-  }, 0) * 100).toFixed(0)
+  }, 0) * 100).toFixed(0))
 
   const total = Object.keys(props.trees).reduce((sum, id) => {
     return sum + props.trees[id]
@@ -56,6 +58,7 @@ const GekiatsuPopup = (props: Props) => {
       const percent = ((props.trees[id] / total) * 100).toFixed(2)
       return {id: id, percent: percent}
     })
+
 
   return (
     <div className="w-40">
@@ -77,6 +80,9 @@ const GekiatsuPopup = (props: Props) => {
           </>
         </div>
       ))}
+      <div className="text-center">
+        <TwitterButton point={totalPoint} latLng={props.latLng} />
+      </div>
     </div>
   ) 
 }
