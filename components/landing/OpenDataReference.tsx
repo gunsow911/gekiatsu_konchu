@@ -35,7 +35,7 @@ const OpenDataReference = () => {
           {list.map(({name, url}) => (
             <div key={url} className="mb-3">
               <div>{name}</div>
-              <a className="text-sm mt-0 hover:underline" href={url}>{url} </a>
+              <a className="text-sm mt-0 hover:underline" href={url} rel="nofollow noopener" target="_blank">{url}</a>
             </div>
           ))}
         </div>
