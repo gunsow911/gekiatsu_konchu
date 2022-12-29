@@ -7,10 +7,10 @@ type Props = {
 /**
  * 説明
  */
-const Description = ({children} : Props) => {
+const Description = (props : Props) => {
   return <div className="flex justify-center">
     <div className="mt-6 text-lg">
-      {children}
+      {props.children}
     </div>
   </div>
 }

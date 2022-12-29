@@ -1,3 +1,4 @@
+import {useState} from "react"
 import Description from "../atoms/Description"
 import Title from "../atoms/Title"
 
@@ -5,9 +6,10 @@ import Title from "../atoms/Title"
  * 激アツ！昆虫マップの説明
  */
 const Introduction = () => {
+  const [hovering, setHovering] = useState<boolean>(false)
   return <>
-    <div className="my-8 mx-4">
-      <Title>激アツ！昆虫マップとは？</Title>
+    <div className="my-8 mx-4" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} >
+      <Title isHover={hovering}>激アツ！昆虫マップとは？</Title>
       <Description>
           山口市の身近な自然の中に潜む昆虫の種別をマップ上で可視化できるツールです。<br />
           昆虫の好きな樹種からそれを好む昆虫のいそうな場所がわかります！<br />

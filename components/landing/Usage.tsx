@@ -1,3 +1,4 @@
+import {useState} from "react"
 import Description from "../atoms/Description"
 import Title from "../atoms/Title"
 
@@ -5,9 +6,10 @@ import Title from "../atoms/Title"
  * 使い方
  */
 const Usage = () => {
+  const [hovering, setHovering] = useState<boolean>(false)
   return <>
-    <div className="my-8 mx-4">
-      <Title>つかいかた</Title>
+    <div className="my-8 mx-4" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+      <Title isHover={hovering}>つかいかた</Title>
       <Description>
         <div className="grid gap-x-4 grid-cols-1 sm:grid-cols-2">
           <div>

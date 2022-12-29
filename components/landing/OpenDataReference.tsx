@@ -1,3 +1,4 @@
+import {useState} from "react"
 import Description from "../atoms/Description"
 import Title from "../atoms/Title"
 
@@ -5,7 +6,7 @@ import Title from "../atoms/Title"
  * 激アツ！昆虫マップのオープンデータ参照先
  */
 const OpenDataReference = () => {
-
+  const [hovering, setHovering] = useState<boolean>(false)
   const list: {name: string, url: string}[] = [
     {
       name: "山口市森林簿（山口県）",
@@ -26,8 +27,8 @@ const OpenDataReference = () => {
   ]
 
   return <>
-    <div className="my-8 mx-4">
-      <Title>オープンデータ</Title>
+    <div className="my-8 mx-4" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+      <Title isHover={hovering}>オープンデータ</Title>
       <Description>
         <div className="text-lg mb-2 font-semibold">激アツ！昆虫マップは、以下のオープンデータを使って作られました</div>
         <div className="grid gap-x-4 grid-cols-1 sm:grid-cols-2">
