@@ -29,7 +29,7 @@ const OpenDataReference = () => {
     <div className="my-8 mx-4">
       <Title>オープンデータ</Title>
       <Description>
-        <div className="text-lg mb-2">激アツ！昆虫マップは、以下のオープンデータを使って作られました</div>
+        <div className="text-lg mb-2 font-semibold">激アツ！昆虫マップは、以下のオープンデータを使って作られました</div>
         <div className="grid gap-x-4 grid-cols-1 sm:grid-cols-2">
           {list.map(({name, url}) => (
             <div key={url} className="mb-3">
