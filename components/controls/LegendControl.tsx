@@ -1,4 +1,4 @@
-import {getColor} from "../utility/Insect"
+import {getColor} from "../../utility/Insect"
 
 
 const LegendControl = () => {

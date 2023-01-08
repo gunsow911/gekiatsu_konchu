@@ -1,4 +1,4 @@
-import {ReactNode, useState} from "react"
+import {ReactNode} from "react"
 
 type Props = {
   children: ReactNode
@@ -12,7 +12,7 @@ const Title = (props : Props) => {
   return (
     <>
       <div className="flex justify-center">
-        <img src="images/icon_logo.png" className={`h-12 inline ease-out duration-200 ${props.isHover ? ' -rotate-12' : 'transform-none'}`} />
+        <img src="/images/icon_logo.png" className={`h-12 inline ease-out duration-200 ${props.isHover ? ' -rotate-12' : 'transform-none'}`} />
         <div className="font-semibold text-4xl my-auto">
           {props.children}
         </div>
