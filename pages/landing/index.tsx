@@ -5,6 +5,7 @@ import Logo from '../../components/atoms/Logo'
 import Usage from '../../components/landing/Usage'
 import OpenDataReference from '../../components/landing/OpenDataReference'
 import ProjectContext from '../../components/landing/ProjectContext'
+import TreeDictionary from '../../components/landing/TreeDictionary'
 
 /**
  * ランディングページ
@@ -16,6 +17,7 @@ export default function Landing() {
       <Introduction />
       <GekiatsuMapLink />
       <Usage />
+      <TreeDictionary />
       <ProjectContext />
       <OpenDataReference />
     </div>

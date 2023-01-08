@@ -5,7 +5,7 @@ import {Marker, Popup} from 'react-leaflet'
 import {Icon, Layer} from 'leaflet';
 import {iconCamp, iconDefault, iconPark, iconShrine, iconSports} from '../icons/Icons'
 import {getColor, getTopInsectPoint} from '../utility/Insect'
-import LegendControl from './LegendControl'
+import LegendControl from './controls/LegendControl'
 import ReactDOMServer from "react-dom/server"
 import GekiatsuPopup from './GekiatsuPopup'
 import {useRouter} from 'next/router';
