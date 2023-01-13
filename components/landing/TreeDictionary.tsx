@@ -46,11 +46,11 @@ const TreeDictionary = () => {
     <div className="my-8 mx-4" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
       <Title isHover={hovering}>樹木図鑑</Title>
       <Description>
-        <div className="grid gap-x-4 gap-y-2 grid-cols-1 sm:grid-cols-2 text-center">
+        <div className="grid gap-x-4 gap-y-2 grid-cols-1 sm:grid-cols-3 text-center">
           {list.map(({name, url, image}) => (
             <div key={url} className="mb-3 ">
               <Link href={url}>
-                <img className="mt-0 mx-auto" src={image} />
+                <img className="rounded mt-0 mx-auto" src={image} />
                 <div className="text-xl mt-1 hover:underline">{name}</div>
               </Link>
             </div>
