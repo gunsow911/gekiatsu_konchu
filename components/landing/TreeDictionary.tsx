@@ -14,32 +14,32 @@ const TreeDictionary = () => {
     {
       name: "アカマツ",
       url: "/trees/akamatsu",
-      image: "/images/akamatsu.jpg",
+      image: "/images/akamatsu_1.jpg",
     },
     {
       name: "ヒノキ",
       url: "/trees/hinoki",
-      image: "/images/hinoki.jpg",
+      image: "/images/hinoki_1.jpg",
     },
     {
       name: "ケヤキ",
       url: "/trees/keyaki",
-      image: "/images/keyaki.jpg",
+      image: "/images/keyaki_1.jpg",
     },
     {
       name: "クヌギ",
       url: "/trees/kunugi",
-      image: "/images/kunugi.jpg",
+      image: "/images/kunugi_1.jpg",
     },
     {
       name: "モウソウ",
       url: "/trees/mousou",
-      image: "/images/mousou.jpg",
+      image: "/images/mousou_1.jpg",
     },
     {
       name: "サクラ",
       url: "/trees/sakura",
-      image: "/images/sakura.jpg",
+      image: "/images/sakura_1.jpg",
     },
   ]
   return <>
