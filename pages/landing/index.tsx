@@ -6,6 +6,7 @@ import Usage from '../../components/landing/Usage'
 import OpenDataReference from '../../components/landing/OpenDataReference'
 import ProjectContext from '../../components/landing/ProjectContext'
 import TreeDictionary from '../../components/landing/TreeDictionary'
+import ReadyToGoMapLink from '../../components/landing/ReadyToGoLink'
 
 /**
  * ランディングページ
@@ -17,6 +18,7 @@ export default function Landing() {
       <Introduction />
       <GekiatsuMapLink />
       <Usage />
+      <ReadyToGoMapLink />
       <TreeDictionary />
       <ProjectContext />
       <OpenDataReference />
