@@ -31,3 +31,7 @@ a {
   font-size: 1.08333em;
   min-height: 1px;
 }
+
+.leaflet-landing-link {
+  width: 80px !important;
+}

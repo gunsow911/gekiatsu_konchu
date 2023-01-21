@@ -9,6 +9,7 @@ import LegendControl from './controls/LegendControl'
 import ReactDOMServer from "react-dom/server"
 import GekiatsuPopup from './GekiatsuPopup'
 import {useRouter} from 'next/router';
+import LinkLandingPageControl from './controls/LinkLandingPageControl';
 
 const Map = () => {
 
@@ -76,6 +77,7 @@ const Map = () => {
           }
       )}
       <LegendControl />
+      <LinkLandingPageControl />
     </MapContainer>
   )
 }

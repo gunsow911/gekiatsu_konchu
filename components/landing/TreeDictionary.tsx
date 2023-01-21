@@ -1,6 +1,5 @@
 import Link from "next/link"
 import {useState} from "react"
-import ButtonLink from "../atoms/ButtonLink"
 import Description from "../atoms/Description"
 import Title from "../atoms/Title"
 
