@@ -10,12 +10,14 @@ import ReactDOMServer from "react-dom/server"
 import GekiatsuPopup from './GekiatsuPopup'
 import {useRouter} from 'next/router';
 import LinkLandingPageControl from './controls/LinkLandingPageControl';
+import { use100vh } from 'react-div-100vh'
 
 const Map = () => {
 
   const router = useRouter()
   const {rows, geoJsonData} = useReadCsv('yamaguchi')
   const [initLayer, setInitLayer] = useState<Layer>()
+  const height = use100vh()
 
   const initLat = router.query.lat ? Number(router.query.lat) : undefined
   const initLng = router.query.lng ? Number(router.query.lng) : undefined
@@ -27,7 +29,7 @@ const Map = () => {
   }, [initLayer])
 
   return (
-    <MapContainer center={initCenter ?? {lat: 34.18583, lng: 131.47139}} zoom={13} style={{width: '100%', height: '100dvh'}}>
+    <MapContainer center={initCenter ?? {lat: 34.18583, lng: 131.47139}} zoom={13} style={{width: '100%', height: height ?? '100vh'}}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
