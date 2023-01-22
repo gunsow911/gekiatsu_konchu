@@ -12,7 +12,6 @@ import {useRouter} from 'next/router';
 import LinkLandingPageControl from './controls/LinkLandingPageControl';
 
 const Map = () => {
-
   const router = useRouter()
   const {rows, geoJsonData} = useReadCsv('yamaguchi')
   const [initLayer, setInitLayer] = useState<Layer>()
