@@ -35,3 +35,8 @@ a {
 .leaflet-landing-link {
   width: 80px !important;
 }
+
+.map {
+  min-height: 100vh;
+  min-height: 100svh;
+}
