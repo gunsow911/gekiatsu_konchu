@@ -28,7 +28,8 @@ const useReadCsv = (place: string) => {
           })
           const rows = results.data.map<Row>((d) => {
             const row = d as any[]
-            const latLng = new LatLng(row[0], row[1])
+            // 型安全のために数値変換を追加
+            const latLng = new LatLng(Number(row[0]), Number(row[1]))
             const category = row[2]
             const name = row[3]
             return {
@@ -39,7 +40,11 @@ const useReadCsv = (place: string) => {
           })
           setRows(rows) 
         })
-    }, [])
+        .catch(e => {
+          setRows([])
+          console.error(e)
+        })
+    }, [place])
 
     useEffect(() => {
       fetch(`/data/forest-reports/${place}.geojson`)
@@ -48,7 +53,11 @@ const useReadCsv = (place: string) => {
           const fc = JSON.parse((text)) as FeatureCollection<MultiPolygon, WoodAreaProperty>
           setGeoJsonData(fc)
         })
-    }, [])
+        .catch(e => {
+          setGeoJsonData(undefined)
+          console.error(e)
+        })
+    }, [place])
 
   return { rows, geoJsonData }
 }
