@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gekiatsu Konchu
 
-## Getting Started
+Gekiatsu Konchuは、Next.jsを用いて開発された、昆虫・樹木・ランドマーク情報を地図上で可視化するWebアプリケーションです。山口県のオープンデータを活用し、地図上でさまざまな情報を閲覧できます。
 
-First, run the development server:
+## 主な機能
+
+- 昆虫・樹木・ランドマークの地図表示（Leaflet使用）
+- スライド形式のランディングページ
+- Twitterシェアボタン
+- オープンデータ参照機能
+
+## ディレクトリ構成
+
+```
+components/         UIコンポーネント
+  landing/          ランディングページ用
+  controls/         地図コントロール
+  atoms/            汎用小コンポーネント
+hooks/              カスタムフック
+icons/              アイコン
+pages/              Next.jsページ
+  api/              APIルート
+  landing/          ランディングページ
+  ready-to-go/      準備ページ
+  trees/            樹木詳細ページ
+public/             画像・データ・アイコン
+  data/             GeoJSON, CSV等のオープンデータ
+styles/             グローバルCSS
+utility/            ユーティリティ
+```
+
+## セットアップ
+
+1. 依存パッケージのインストール
+
+```bash
+npm install
+# または
+yarn install
+```
+
+2. 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
+# または
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. ブラウザで [http://localhost:3000](http://localhost:3000) を開いて動作を確認してください。
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## ビルド・デプロイ
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run build
+npm start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Vercel等のサービスを利用してデプロイ可能です。
 
-## Learn More
+## 主な技術
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Leaflet](https://leafletjs.com/)
+- TypeScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## データについて
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `public/data/` 配下にGeoJSONやCSV形式のオープンデータを配置しています。
+- 画像やアイコンも `public/` 配下に整理されています。
 
-## Deploy on Vercel
+## コントリビュート
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+バグ報告・機能提案・プルリクエストを歓迎します。お気軽にIssueやPRをお送りください。
